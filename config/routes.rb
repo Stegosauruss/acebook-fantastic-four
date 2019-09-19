@@ -1,7 +1,9 @@
 Rails.application.routes.draw do
   get '/user/:id' => 'user#index'
+  get '/user/:id' => 'user#show'
   get '/posts' => 'posts#index'
   delete '/posts' => 'posts#delete'
+  delete '/friendship/:user_id' => 'friendships#destroy'
   get '/posts/new' => 'posts#new'
   get '/posts/:id' => 'posts#edit'
   get '/user/posts/:id' => 'posts#edit'
@@ -11,7 +13,7 @@ Rails.application.routes.draw do
   resources :user, only: [:show] do
     resources :posts, only: [:new, :create, :index, :update, :edit]
   end
-
+  resources :friendships, only: [:create, :destroy]
   devise_for :users 
   root 'posts#index'
 

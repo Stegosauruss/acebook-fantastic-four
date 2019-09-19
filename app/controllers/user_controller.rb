@@ -1,6 +1,7 @@
 class UserController < ApplicationController
   def index
     @user_class = User
+    @users = User.all
     @user = User.find(params[:id])
     @posts = Post.all.order("created_at DESC")
     if @posts.first == nil
