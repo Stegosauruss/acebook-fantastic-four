@@ -25,12 +25,12 @@
   <%@users.each do |user|%>
 <% if user.id != current_user.id%>
 <% if current_user.friend_with?(user.id)%>
- <p class="user-profile"><%= link_to user.email, user_path(user.id), class: 'people-btn' %>
+ <p class="user-profile"><%= link_to user.email, user_path(user.id), class: 'people-btn'%>
   <span>Friends</span></p>
 <% else %>
-<p class="user-profile"><%= link_to user.email, user_path(user.id), class: 'people-btn' %></p>
-<%= link_to 'Add Friends', friendships_path(:friend_id => user), :method => :pos, class: 'add-friend-btn' %>
-
+<p class="user-profile"><%= link_to user.email, user_path(user.id), class: 'people-btn'%>
+<%= link_to 'Add Friend', friendships_path(:friend_id => user), :method => :pos, class: 'add-friend-btn' %>
+</p>
 <% end %>
 <% end %>
 <% end %>
