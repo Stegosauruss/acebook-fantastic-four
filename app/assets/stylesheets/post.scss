@@ -1,4 +1,5 @@
 @import "bootstrap";
+
 .logo{
   text-align: center;
   letter-spacing: 0.2em;
@@ -7,6 +8,7 @@
   img{ width: 8%;
   }
 } 
+
   .logout-link {    float: right;
     display: block;
     width: 100%;}
@@ -18,11 +20,13 @@
       text-align: left;
       background: #3e6167;
       color: #fff;
+      ul {    margin: 0;}
   }
 .nav-link {
   display: inline-block;
-  font-size: 18px;
-  text-transform: capitalize;}
+  font-size: 22px;
+  text-transform: capitalize;
+  padding: 20px;}
   .nav-link:visited {color: #fff;}
 a.nav-link:hover {
   color: #fff;
@@ -30,6 +34,13 @@ a.nav-link:hover {
 }
   .top-nav ul li {    list-style: none;
     display: inline;}
+
+    .page-container {
+      width: 100%;
+      display: inline-block;
+      position: relative;
+      padding: 2%;
+  }
 .friends-container {    float: right;
   width: 25%;}
 
@@ -40,14 +51,20 @@ a.nav-link:hover {
     .card {
       margin: 0 auto 1%;
       text-align: center;
-      width: 80%;
+      width: 45%;
       border: 3px solid #3e6166;
     }
+    .card-text {
+      font-size: 18px;
+      letter-spacing: 0.05em;
+      margin: 5% 0;
+  }
 }
 
 h3 {text-align: right;
   font-size: 16px;
-  letter-spacing: 0.1em;}
+  letter-spacing: 0.1em;
+  color: #fff;}
 .user-cards{
   .card {
     margin: 2% auto 1%;
@@ -75,3 +92,32 @@ a.btn.btn-primary:visited {
 }
 
 .logout {float: right;}
+
+.user-profile {font-size: 14px;
+  margin: 5% 0;
+  color: #fff;}
+  .people-btn {
+    font-size: 16px;
+    letter-spacing: 0.05em;
+}
+
+.add-friend-btn {
+  float: right;
+}
+a.people-btn:visited {
+  color: #fff;
+}
+a.add-friend-btn:visited {
+  color: #fff;
+}
+
+.user-profile span {
+  float: right;
+  background: #000;
+  padding: 1%;
+}
+a.add-friend-btn {
+  background: #999;
+  padding: 1%;
+  color: #fff;
+}

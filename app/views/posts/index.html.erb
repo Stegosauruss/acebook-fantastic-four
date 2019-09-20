@@ -14,6 +14,7 @@
       </li>
     </ul>
   </div>
+  <div class="page-container">
   <h3>Hello <%= current_user.email %>! You are now signed in</h3>
    <div class="logout-link">
    <%= link_to('Logout', destroy_user_session_path, method: :delete, class: 'btn btn-primary logout') %>
@@ -24,11 +25,11 @@
   <%@users.each do |user|%>
 <% if user.id != current_user.id%>
 <% if current_user.friend_with?(user.id)%>
- <p><%= link_to user.email, user_path(user.id), class: 'people-btn'%>
+ <p class="user-profile"><%= link_to user.email, user_path(user.id), class: 'people-btn'%>
   <span>Friends</span></p>
 <% else %>
-<p><%= link_to user.email, user_path(user.id), class: 'people-btn'%>
-<%= link_to 'Add Friend', friendships_path(:friend_id => user), :method => :post%>
+<p class="user-profile"><%= link_to user.email, user_path(user.id), class: 'people-btn'%>
+<%= link_to 'Add Friend', friendships_path(:friend_id => user), :method => :pos, class: 'add-friend-btn' %>
 </p>
 <% end %>
 <% end %>
@@ -43,7 +44,7 @@
        <% end %>
 
       <% if post.user_id != current_user.id && !current_user.friend_with?(post.user_id)%>
-      <%= link_to 'Add Friend', friendships_path(:friend_id => post.user_id), :method => :post%>
+      <%= link_to 'Add Friend', friendships_path(:friend_id => post.user_id), :method => :post, class: 'add-friend-btn'%>
       <% end %>
 
       <%= simple_format(post.message, class: 'card-text') %>
@@ -90,3 +91,4 @@
   <% end %>
 <% end %>
 <% end %>
+</div>
