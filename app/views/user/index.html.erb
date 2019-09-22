@@ -1,3 +1,4 @@
+<div class="page-container">
 <% if current_user == @user %>
     <h3>Hello <%= current_user.email %>! You are now signed in to your User Page!</h3>
 <% else %>
@@ -19,12 +20,14 @@
 <% if current_user == @user %>
 <p>My Friends:  <%= @user.friendships.count %></p>
   <% for friendship in @user.friendships%>
-  <p><%=h friendship.friend.email%>
+  <p><%= link_to user_path(friendship.friend.id) do %>
+  <%=h friendship.friend.email%>
+  <% end %>
   <%= link_to 'Remove Friend', friendship, :method=>:delete%>
   </p>
   <% end %>
   <% elsif @user.id != current_user.id && !current_user.friend_with?(@user.id)%>
-    <p>Friends:  <%= @user.friendships.count %></p>
+    <p>Friends: <%= @user.friendships.count %></p>
   <% for friendship in @user.friendships%>
   <p><%=h friendship.friend.email%>
   </p>
@@ -32,6 +35,16 @@
       <%= link_to 'Add me as a friend', friendships_path(:friend_id => @user.id), :method => :post%>
 <% end %>
 
+<% if @user.id != current_user.id %>
+      <p>Friends:  <%= @user.friendships.count %></p>
+  <% for friendship in @user.friendships%>
+  <p><%= link_to user_path(friendship.friend.id) do %>
+  <%=h friendship.friend.email%>
+  <% end %>
+  </p>
+  <% end %>
+   <% end %> 
+   
 <div class="user-cards">
 <% @wall_posts.each do |post| %>
   <div class="card">
@@ -51,9 +64,10 @@
         <% end %>
       <% end %>
           <% if post.user_id != current_user.id && !current_user.friend_with?(post.user_id)%>
-        <%= link_to 'Add Friend', friendships_path(:friend_id => post.user_id), :method => :post, class: 'add-friends-btn'%>
+        <%= link_to 'Add Friend', friendships_path(:friend_id => post.user_id), :method => :post, class: 'add-friends-btn' %>
       <% end %>
   </div>
 </div>
 <% end %>
+</div>
 </div>
