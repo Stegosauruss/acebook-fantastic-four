@@ -29,7 +29,7 @@
   <span>Friends</span></p>
 <% else %>
 <p class="user-profile"><%= link_to user.email, user_path(user.id), class: 'people-btn'%>
-<%= link_to 'Add Friend', friendships_path(:friend_id => user), :method => :pos, class: 'add-friend-btn' %>
+<%= link_to 'Add Friend', friendships_path(:friend_id => user), :method => :post, class: 'add-friend-btn' %>
 </p>
 <% end %>
 <% end %>
