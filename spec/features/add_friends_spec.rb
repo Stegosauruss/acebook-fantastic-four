@@ -9,7 +9,7 @@ RSpec.feature "Adding friends", type: :feature do
     click_link "All Posts"
     expect(page).to have_content("Add Friend")
   end
-  
+
   xscenario "Can add a friend from list of users on all posts wall" do
     sign_up
     click_link "Logout"
