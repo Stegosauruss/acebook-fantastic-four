@@ -10,7 +10,7 @@ RSpec.feature "Adding friends", type: :feature do
     expect(page).to have_content("Add Friend")
   end
 
-  xscenario "Can add a friend from list of users on all posts wall" do
+  scenario "Can add a friend from list of users on all posts wall" do
     sign_up
     click_link "Logout"
     sign_up_other_user
@@ -19,7 +19,7 @@ RSpec.feature "Adding friends", type: :feature do
     expect(page).to have_content("Friends")
   end
 
-  xscenario "Can remove a friend from our own wall" do
+  scenario "Can remove a friend from our own wall" do
     sign_up
     click_link "Logout"
     sign_up_other_user
